@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calq_style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="calc_ui" align="center">
+            <input type="text" id="screen">
+            <br>
+            <br>
+            <button id="op" onclick="Clear('C')">C</button>
+            <button id="op" onclick="Solve('/')">/</button>
+            <button id="op" onclick="Solve('*')">X</button>
+            <button id="op" onclick="Del('⌫')">⌫</button>
+            <br>
+            <button id="num" onclick="Solve('7')">7</button>
+            <button id="num" onclick="Solve('8')">8</button>
+            <button id="num" onclick="Solve('9')">9</button>
+            <button id="op" onclick="Solve('-')">-</button>
+            <br>
+            <button id="num" onclick="Solve('4')">4</button>
+            <button id="num" onclick="Solve('5')">5</button>
+            <button id="num" onclick="Solve('6')">6</button>
+            <button id="op" onclick="Solve('+')">+</button>
+            <br>
+            <button id="num" onclick="Solve('1')">1</button>
+            <button id="num" onclick="Solve('2')">2</button>
+            <button id="num" onclick="Solve('3')">3</button>
+            <button id="op" onclick="Solve('%')">%</button>
+            <br>
+            <button id="num" onclick="Solve(0)">0</button>
+            <button id="op" onclick="Solve('.')">.</button>
+            <button id="op" onclick="Result('=')">=</button>
+        </div>
+    </div>
+
+    <script src="calq_script.js"></script>
+</body>
+</html>

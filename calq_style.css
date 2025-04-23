@@ -1,0 +1,29 @@
+@media screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+}
+
+button {
+    padding: 3%;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+#op {
+    color: blue;
+}
+
+#num {
+    color: black;
+}
+
+#screen {
+    padding: 15px;
+    font-size: x-large;
+    border-width: 2px;
+    border-color: gray;
+    border-radius: 17px;
+}
