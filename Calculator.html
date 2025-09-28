@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .num, .op, .eq-btn, .clear, .del {
+      border-color: black;
+      margin: 3px;
+      width: 53px;
+      height: 53px;
+      font-size: 20px;
+      border-radius: 100px;
+    }
+    
+    .num {
+      background-color: white;
+      color: black;
+    }
+    
+    .op {
+      color: dodgerblue;
+      background-color: white;
+      font-size: 27px;
+    }
+    
+    .eq-btn {
+      color: white;
+      background-color: dodgerblue;
+      border-radius: 100px;
+      font-size: 27px;
+    }
+    
+    .clear {
+      color: white;
+      background-color: red;
+    }
+    
+    .del {
+      color: red;
+      background-color: white;
+    }
+    
+    .input {
+      font-size: 27px;
+      border-radius: 27px;
+      width: 250px;
+      height: ;
+      padding: 7px;
+      background: none;
+      font-family: Sans-Serif;
+      border-width: 3px;
+      border-color: black;
+    }
+    
+    /*dark mode stuff*/
+    
+    .dark-mode {
+      background-color: #202020;
+      color: white;
+    }
+    
+    .dark-mode .num {
+      background-color: darkgray;
+      color: #f5f5f5;
+      border-color: #000000;
+    }
+    
+    .dark-mode .op, .dark-mode .del {
+      background-color: #333333;
+    }
+    
+    .dark-mode .clear {
+      background-image: #a83232;
+    }
+    
+    .dark-mode .input {
+      color: white;
+    }
+    
+    body {
+      background-color: white;
+      color: black;
+      font-family: Sans-Serif;
+    }
+    
+    a {
+      margin: 3px;
+      font-size: 27px;
+    }
+  </style>
+</head>
+<body>  
+  <div align="center">  
+    <textarea type="text" class="input"></textarea>
+    <br>  
+    <br>
+    <!-- add onclick() for javascript later -->
+    <button onclick="Clear()" class="clear">C</button>  
+    <button onclick="operations('÷')" class="op">÷</button>  
+    <button onclick="operations('×')" class="op">×</button>  
+    <button onclick="del()" class="del">⌫</button>  
+    <br>  
+    <button onclick="numbers('7')" class="num">7</button>  
+    <button onclick="numbers('8')" class="num">8</button>  
+    <button onclick="numbers('9')" class="num">9</button>  
+    <button onclick="operations('+')" class="op">+</button>  
+    <br>  
+    <button onclick="numbers('4')" class="num">4</button>  
+    <button onclick="numbers('5')" class="num">5</button>  
+    <button onclick="numbers('6')" class="num">6</button>  
+    <button onclick="operations('-')" class="op">-</button>  
+    <br>  
+    <button onclick="numbers('1')" class="num">1</button>  
+    <button onclick="numbers('2')" class="num">2</button>  
+    <button onclick="numbers('3')" class="num">3</button>  
+    <button onclick="calculate()" class="eq-btn">=</button>  
+    <br>  
+    <button onclick="numbers('.')" class="num">.</button>  
+    <button onclick="numbers('0')" class="num">0</button>  
+    <button onclick="numbers('00')" class="num">00</button>  
+  </div>
+  <br>
+  <br>
+  <h3>Some theme option:</h3>
+  <button class="btn-dark-mode">dark mode</button>
+  <br>
+  <h3>Links:</h3>
+  <a href="https://github.com/giobacus" target="_blank" class="icon-link">
+  <i class="fab fa-github"></i>
+  </a>
+  <a href="https://www.tiktok.com/@gioxr_0?_t=ZS-9061uW5UBOv&_r=1" target="_blank" class="icon-link">
+    <i class="fab fa-tiktok"></i>
+  </a>
+  <script>  
+    const input = document.querySelector(".input");  
+    
+    //put the button value to input element. same to others!
+    function numbers(num) {  
+      input.value += num;  
+    }  
+  
+    function operations(op) {  
+      input.value += op;  
+    }  
+  
+    function Clear() {  
+      input.value = "";  
+    }  
+  
+    function del() {  
+      input.value = input.value.slice(0, -1);  
+    }  
+    
+    //for calculations
+    //i use eval to make job faster
+    function calculate() {  
+      let allowedOps = ["+", "-", "*", "/"];  
+      let value = input.value;
+      
+      //some random stuff...
+      if (value.trim() === "") {
+        input.value = "cannot be empty";
+        return;
+      } else if (value.toLowerCase() === "whats 9 + 10") {
+        input.value = "21"
+        return;
+      } else if (value.toLowerCase() === "crush reveal") {
+        input.value = "secret...";
+        return;
+      }
+      
+      //checks if the value contains allowedOps
+      //i use replace() to replace ÷ and × into / and * since javascript dont understand them
+      const isValid = allowedOps.some(op => value.replace(/÷/g, "/").replace(/×/g, "*").includes(op)) || !isNaN(value);
+      try {
+        input.value = isValid ? value = eval(value.replace(/÷/g, "/").replace(/×/g, "*")) : input.value = "not allowed";
+      } catch (error) {
+        //instead of errors in console, i put it in input instead
+        input.value = "whats that bruh";
+      }
+    }
+    
+    // dark mode stuff...
+    let btnDm = document.querySelector(".btn-dark-mode");
+    btnDm.addEventListener("click", function () {
+      document.body.classList.toggle("dark-mode");
+    });
+  </script>  
+</body> 
+</html>
