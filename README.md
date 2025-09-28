@@ -1,6 +1,7 @@
-# Simple-Calculator.
+# Simple-Calculator
 A simple calculator built with HTML, CSS and JS
 
+[Try it here!] (https://giobacus.github.io/Simple-Calculator/)
 
 ## ✨ Features:
 - Basic math operations ➕ ➖ ✖️ ➗
@@ -11,11 +12,11 @@ A simple calculator built with HTML, CSS and JS
 
 
 ## ❓ How to use:
-1. Open the demo link above or download the HTML file
+1. Open the demo link or download the HTML file
 2. Open the index.html file.
 3. Click buttons to do some calculations!
 
 ## 🛠️ Technologies:
 - HTML5
 - CSS3
-- Javascript(vanilla) 
+- Javascript(vanilla)
